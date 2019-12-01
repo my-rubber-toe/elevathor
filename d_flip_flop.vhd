@@ -39,7 +39,7 @@ end d_flip_flop;
 architecture Behavioral of d_flip_flop is
 
 
--- COMPONENT USES negative RESET
+-- USES negative RESET
 
 begin
 process(clock) begin
