@@ -92,7 +92,7 @@ key_mux_C:mux_4x1 port map(
    m3 => '0',
    s0 => cf0,
    s1 => cf1,
-   mux_out => mux_B_out
+   mux_out => mux_C_out
 );
 
 key_mux_D:mux_4x1 port map(
