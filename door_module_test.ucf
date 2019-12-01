@@ -1,0 +1,12 @@
+net "door_clock" loc = "E7";
+net "door_reset" loc = "F7";
+net "enable_door" loc = "N17";
+net "open_door" loc = "H18";
+net "close_door" loc = "L14";
+net "is_closed" loc = "L13";
+net "dir_0" loc = "E9";
+net "dir_1" loc = "D11";
+net "enable_delay" loc = "C11";
+net "enable_floor" loc ="F11";
+
+NET "door_clock" CLOCK_DEDICATED_ROUTE = FALSE; 

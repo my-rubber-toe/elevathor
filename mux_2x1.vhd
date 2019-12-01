@@ -45,4 +45,3 @@ mux_out <= m0 when(sel='0') else
 			
 
 end Behavioral;
-

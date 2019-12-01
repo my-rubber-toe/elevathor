@@ -73,8 +73,6 @@ end component;
 signal mux_A_out, mux_B_out, mux_A_m3 : STD_LOGIC;
 signal q_A, q_B : STD_LOGIC;
 
-
-
 begin
 
 mux_A_m3 <= not(is_closed) and not(open_door);

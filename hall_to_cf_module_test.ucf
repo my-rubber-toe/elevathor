@@ -1,0 +1,7 @@
+net "hall_clock" loc = "C9";
+net "hall_reset" loc = "F7";
+net "h0" loc = "N17";
+net "h1" loc = "H18";
+net "h2" loc = "L14";
+net "cf1" loc = "C11";
+net "cf0" loc = "F11";

@@ -53,7 +53,7 @@ signal or_out, and1_out, and2_out, and3_out : STD_LOGIC;
 
 begin
 
-and1_out <= sr_out and R;
+and1_out <= sr_out and not(R);
 and2_out <= sr_out and S;
 and3_out <= not(R) and S;
 
@@ -65,5 +65,6 @@ d_internal:d_flip_flop port map(
 	R => not(GLOBAL_RESET),
 	Q => sr_out
 );
+
 end Behavioral;
 
