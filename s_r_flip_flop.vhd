@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    00:27:57 12/01/2019 
+-- Create Date:    01:07:02 12/01/2019 
 -- Design Name: 
--- Module Name:    d_flip_flop - Behavioral 
+-- Module Name:    s_r_flip_flop - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,26 +29,41 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity d_flip_flop is
+entity s_r_flip_flop is
     Port ( clock : in  STD_LOGIC;
+           S : in  STD_LOGIC;
+           R : in  STD_LOGIC;
+           GLOBAL_RESET : in  STD_LOGIC;
+           s_r_out : out  STD_LOGIC);
+end s_r_flip_flop;
+
+architecture Behavioral of s_r_flip_flop is
+
+component d_flip_flop is 
+	Port(
+			clock : in  STD_LOGIC;
            D : in  STD_LOGIC;
            R : in  STD_LOGIC;
-           Q : out  STD_LOGIC);
-end d_flip_flop;
+           Q : out  STD_LOGIC
+	);
+end component;
 
-architecture Behavioral of d_flip_flop is
-
-
--- COMPONENT USES negative RESET
+-- inernal signals
+signal or_out, and1_out, and2_out, and3_out : STD_LOGIC;
 
 begin
-process(clock) begin
-	if(rising_edge(clock)) then 
-		if(R = '0') then Q <= '0';
-		else Q<= D;
-		end if;
-	end if;
-end process;
 
+and1_out <= s_r_out and R;
+and2_out <= s_r_out and S;
+and3_out <= not(R) and S;
+
+or_out <= and1_out or and2_out or and3_out;
+
+d_internal:d_flip_flop port map(
+	clock => clock,
+	D => or_out,
+	R => not(GLOBAL_RESET),
+	Q => s_r_out
+);
 end Behavioral;
 
