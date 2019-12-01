@@ -34,7 +34,7 @@ entity s_r_flip_flop is
            S : in  STD_LOGIC;
            R : in  STD_LOGIC;
            GLOBAL_RESET : in  STD_LOGIC;
-           s_r_out : out  STD_LOGIC);
+           s_r_out : inout  STD_LOGIC);
 end s_r_flip_flop;
 
 architecture Behavioral of s_r_flip_flop is
