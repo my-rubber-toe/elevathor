@@ -73,17 +73,18 @@ begin
 
 mux_B_m1 <= not(h0) and not(h2);
 
+
 hall_d_flip_flop_A:d_flip_flop port map(
 	clock=> hall_clock, 
    D => mux_A_out,
-   R => not(hall_reset),
+   R => not('0'),
    Q => q_A
 );
 
 hall_d_flip_flop_B:d_flip_flop port map(
 	clock=> hall_clock, 
    D => mux_B_out,
-   R => not(hall_reset),
+   R => not('0'),
    Q => q_B
 );
 
@@ -104,7 +105,7 @@ hall_mux_B:mux_4x1 port map(
    m3 => '0',
    s0 => q_B,
    s1 => q_A,
-   mux_out => mux_A_out
+   mux_out => mux_B_out
 );
 
 -- outputs

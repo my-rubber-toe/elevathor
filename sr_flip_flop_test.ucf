@@ -1,0 +1,7 @@
+net "sr_clock" loc = "E7";
+net "S" loc = "N17";
+net "R" loc = "H18";
+net "GLOBAL_RESET" loc = "F7";
+net "sr_out" loc ="C11";
+
+NET "sr_clock" CLOCK_DEDICATED_ROUTE = FALSE;
