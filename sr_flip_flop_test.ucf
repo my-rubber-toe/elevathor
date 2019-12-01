@@ -1,4 +1,4 @@
-net "sr_clock" loc = "E7";
+net "sr_clock" loc = "C9";
 net "S" loc = "N17";
 net "R" loc = "H18";
 net "GLOBAL_RESET" loc = "F7";

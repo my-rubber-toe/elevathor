@@ -29,15 +29,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity s_r_flip_flop is
+entity sr_flip_flop is
     Port ( sr_clock : in  STD_LOGIC;
            S : in  STD_LOGIC;
            R : in  STD_LOGIC;
            GLOBAL_RESET : in  STD_LOGIC;
            sr_out : inout  STD_LOGIC);
-end s_r_flip_flop;
+end sr_flip_flop;
 
-architecture Behavioral of s_r_flip_flop is
+architecture Behavioral of sr_flip_flop is
 
 component d_flip_flop is 
 	Port(
