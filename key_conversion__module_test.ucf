@@ -1,0 +1,15 @@
+net "b0" loc = "F7";
+net "b1" loc = "E7";
+net "b2" loc = "B6";
+net "d1" loc = "B4";
+net "u1" loc = "A4";
+net "d0" loc = "D5";
+net "u0" loc = "C5";
+net "cf0" loc = "H18";
+net "cf1" loc = "N17";
+net "d1_out" loc ="F9";
+net "u1_out" loc = "E9";
+net "d0_out" loc = "D11";
+net "u0_out" loc = "C11";
+
+NET "cf0" CLOCK_DEDICATED_ROUTE = FALSE;

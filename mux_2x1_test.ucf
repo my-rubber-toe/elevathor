@@ -1,4 +1,4 @@
 net "m0" loc = "F7";
-net "m1" loc = "E7";
-net "sel" loc = "L13";
-net "mux_out" loc = "E12";
+net "m1" loc = "H18";
+net "sel" loc = "N17";
+net "mux_out" loc = "E9";

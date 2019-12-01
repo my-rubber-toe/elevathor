@@ -1,0 +1,11 @@
+net "alarm_clock" loc = "C9";
+net "alarm_reset" loc = "N17";
+net "alarm" loc = "H18";
+net "cf1" loc = "L14";
+net "cf0" loc = "L13";
+net "motor_enable" loc = "F7";
+net "dir" loc = "E7";
+net "alarm_out" loc = "F9";
+net "b0_out" loc = "E9";
+net "b1_out" loc = "D11";
+net "b2_out" loc = "C11";
