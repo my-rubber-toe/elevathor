@@ -1,0 +1,14 @@
+net "floor_clock" loc = "C9";
+net "floor_reset" loc = "L13";
+net "floor_h0" loc = "N17";
+net "floor_h1" loc = "H18";
+net "floor_h2" loc = "L14";
+net "floor_open" loc = "A6";
+net "floor_down" loc = "B6";
+net "floor_up" loc = "E7";
+net "floor_enable" loc = "F7";
+
+net "floor_prev" loc = "F9";
+net "floor_dir_up" loc = "E9";
+net "floor_dir_down" loc = "D11";
+net "floor_enable_door" loc = "C11";
