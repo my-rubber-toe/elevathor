@@ -58,11 +58,6 @@ end component;
 signal DX_out, DY_out, DZ_out, DA_out, DB_out : STD_LOGIC;
 signal DZ_in, DA_in, DB_in : STD_LOGIC;
 
--- 
-
-signal and_1, and_2, and_3 : STD_LOGIC;
-
-
 begin
 
 DZ_in <= (not(DX_out) and DZ_out) or DY_out;
