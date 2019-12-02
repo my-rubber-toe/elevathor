@@ -57,7 +57,7 @@ component mux_8x1 is
 		s0 : in  STD_LOGIC;
 		s1 : in  STD_LOGIC;
 		s2 : in  STD_LOGIC;
-		mux_out : out  STD_LOGIC);
+		mux_8x1_out : out  STD_LOGIC);
 end component;
 
 component mux_4x1 is 
@@ -74,6 +74,7 @@ end component;
 
 -- internal ignals
 signal mux_open_m1, mux_open_m5, mux_down_m2, mux_up_m0 : STD_LOGIC;
+signal mux_open_out, mux_down_out, mux_up_out : STD_LOGIC;
 
 begin
 
@@ -96,15 +97,14 @@ MUX_OPEN:mux_8x1 port map(
 	s0 => cf0,
 	s1 => cf1,
 	s2 => prev_dir,
-	mux_out => open_door
-
+	mux_8x1_out => open_door
 );
 
 MUX_DOWN:mux_4x1 port map(
-	m0 => '1',
+	m0 => '0',
    m1 => u0_in,
    m2 => mux_down_m2,
-   m3 => '1',
+   m3 => '0',
    s0 => cf0,
    s1 => cf1,
    mux_out => down
@@ -113,12 +113,17 @@ MUX_DOWN:mux_4x1 port map(
 MUX_UP:mux_4x1 port map(
 	m0 => mux_up_m0,
    m1 => d1_in,
-   m2 => '1',
-   m3 => '1',
+   m2 => '0',
+   m3 => '0',
    s0 => cf0,
    s1 => cf1,
    mux_out => up
 );
+
+-- outputs
+--open_door <= mux_open_out;
+--down <= mux_down_out;
+--up <= mux_up_out;
 
 end Behavioral;
 

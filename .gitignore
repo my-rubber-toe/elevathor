@@ -71,4 +71,9 @@ xst/
 _ngo/
 _xmsgs/
 
+#other
+planAhead*
+
+
+
 # End of https://www.gitignore.io/api/xilinxise
