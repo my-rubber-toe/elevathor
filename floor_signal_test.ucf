@@ -1,0 +1,14 @@
+net "prev_dir" loc = "N17";
+net "cf1" loc = "H18";
+net "cf0" loc = "L14";
+
+net "u0_in" loc = "F7";
+net "u1_in" loc = "E7";
+net "d0_in" loc = "B6";
+net "d1_in" loc = "A6";
+
+net "open_door" loc = "E9";
+net "down" loc = "D11";
+net "up" loc = "C11";
+
+NET "cf0" CLOCK_DEDICATED_ROUTE = FALSE; 

@@ -41,14 +41,14 @@ entity mux_8x1 is
            s0 : in  STD_LOGIC;
            s1 : in  STD_LOGIC;
            s2 : in  STD_LOGIC;
-           mux_out : out  STD_LOGIC);
+           mux_8x1_out : out  STD_LOGIC);
 end mux_8x1;
 
 architecture Behavioral of mux_8x1 is
 
 begin
 
-mux_out <= m0 when(s2='0' and s1='0' and s0='0') else
+mux_8x1_out <= m0 when(s2='0' and s1='0' and s0='0') else
 			  m1 when(s2='0' and s1='0' and s0='1') else
 			  m2 when(s2='0' and s1='1' and s0='0') else
 			  m3 when(s2='0' and s1='1' and s0='1') else
