@@ -1,0 +1,6 @@
+net "sr_mux_clock" loc ="C9";
+net "S" loc = "F7";
+net "cf1" loc = "H18";
+net "cf0" loc = "L14";
+net "e_door" loc ="L13";
+net "sr_mux_out" loc = "C11";

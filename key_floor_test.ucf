@@ -1,0 +1,19 @@
+ net "system_clock" loc ="C9";
+ net "cf1" loc ="N17";
+ net "cf0" loc ="H18";
+ net "d_open" loc ="L14";
+			  
+net "key_b0_in" loc ="F7";
+net "key_b1_in" loc ="E7";
+net "key_b2_in" loc ="B6";
+           
+net "floor_u0_out" loc ="F12";
+net "floor_d0_out" loc ="E12";
+
+net "floor_u1_out" loc ="E11";
+net "floor_d1_out" loc ="F11";
+
+net "cf0_out" loc ="D5";
+net "cf1_out" loc ="C5";
+
+NET "cf0" CLOCK_DEDICATED_ROUTE = FALSE; 

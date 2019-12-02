@@ -1,10 +1,10 @@
 net "alarm_clock" loc = "C9";
-net "alarm_reset" loc ="L13";
+net "alarm_reset" loc ="E7";
 net "alarm" loc = "F7";
 net "cf1" loc = "N17";
 net "cf0" loc = "H18";
-net "motor_enable" loc = "E7";
-net "dir" loc = "B6";
+net "motor_enable" loc = "L14";
+net "dir" loc = "L13";
 
 net "alarm_out" loc = "F9";
 net "b0_out" loc = "E9";
