@@ -1,0 +1,38 @@
+net "system_clock" loc ="C9";
+
+# Hall Effects
+net "system_h0" loc ="N17";
+net "system_h1" loc = "H18";
+net "system_h2" loc ="L14";
+
+# Alarm
+net "system_alarm" loc = "L13";
+#net "system_alarm_reset" loc ="";
+
+# Buttons keypad
+#net "system_b0" loc = "F7";
+#net "system_b1" loc ="E7";
+#net "system_b2" loc = "B6";
+
+# Buttons outside
+net "system_u0" loc ="F7";
+net "system_u1" loc ="E7";
+net "system_d0" loc ="B6";
+net "system_d1" loc ="A6";
+
+# Door Controls
+system_close : in STD_LOGIC;
+system_open : in STD_LOGIC;
+system_is_closed : in STD_LOGIC;
+
+-- floor module outs
+system_prev_out : out  STD_LOGIC;
+system_dir_down : out  STD_LOGIC;
+system_dir_up : out  STD_LOGIC;
+system_enable_door : out  STD_LOGIC;
+
+-- door module outs
+system_door_dir0 : out  STD_LOGIC;
+system_door_dir1 : out  STD_LOGIC;
+system_door_enable_delay : out  STD_LOGIC;
+system_door_enable_floor : out  STD_LOGIC	

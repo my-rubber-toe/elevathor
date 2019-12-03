@@ -54,58 +54,37 @@ component d_flip_flop is
 	);
 end component;
 
--- internal signals
-signal DX_out, DY_out, DZ_out, DA_out, DB_out : STD_LOGIC;
-signal DZ_in, DA_in, DB_in : STD_LOGIC;
+component mux_2x1 is
+	Port ( 
+		m0 : in  STD_LOGIC;
+		m1 : in  STD_LOGIC;
+      sel : in  STD_LOGIC;
+      mux_out : out  STD_LOGIC);
+end component;
+
+signal mux_alarm_out, alarm_D_out : STD_LOGIC;
 
 begin
 
-DZ_in <= (not(DX_out) and DZ_out) or DY_out;
-
-DA_in <= DZ_out and ((cf1 and not(motor_enable)) or (cf0 and dir and motor_enable));
-DB_in <= DZ_out and (motor_enable xor cf0);
-
-DX:d_flip_flop port map(
-	clock => alarm_clock,
-	D => alarm_reset,
-	R => not(alarm_reset),
-	Q => DX_out
+alarm_mux:mux_2x1 port map(
+	m0 => alarm,
+	m1 => not(alarm_reset),
+   sel => alarm_D_out,
+   mux_out => mux_alarm_out
 );
 
-DY:d_flip_flop port map(
+alarm_D:d_flip_flop port map(
 	clock => alarm_clock,
-	D => alarm,
+	D => mux_alarm_out,
 	R => not(alarm_reset),
-	Q => DY_out
+	Q => alarm_D_out
 );
+-- output
+alarm_out <= alarm_D_out;
+b0_out <= alarm_D_out and ((not(cf1) and not(cf0)) or (motor_enable and not(dir) and not(cf1)));
+b1_out <= alarm_D_out and ((not(motor_enable) and cf0) or (motor_enable and not(dir) and cf1) or (motor_enable and(dir) and not(cf1) and not(cf0)));
+b2_out <= alarm_D_out and ((not(motor_enable) and cf1) or (motor_enable and dir and cf0) or (dir and cf1));
 
-DZ:d_flip_flop port map(
-	clock => alarm_clock,
-	D => DZ_in,
-	R => not(alarm_reset),
-	Q => DZ_out
-);
-
-DA:d_flip_flop port map(
-	clock => alarm_clock,
-	D => DA_in,
-	R => not(alarm_reset),
-	Q => DA_out
-);
-
-DB:d_flip_flop port map(
-	clock => alarm_clock,
-	D => DB_in,
-	R => not(alarm_reset),
-	Q => DB_out
-);
-
-
--- outputs
-alarm_out <= DZ_out;
-b0_out <= DA_out nor DB_out;
-b1_out <= not(DA_out) nor DB_out;
-b2_out <= DA_out nor not(DB_out);
 
 end Behavioral;
 

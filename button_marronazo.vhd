@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    15:47:05 12/02/2019 
+-- Create Date:    18:09:10 12/02/2019 
 -- Design Name: 
--- Module Name:    mux_2x1 - Behavioral 
+-- Module Name:    button_marronazo - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -29,19 +29,29 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity mux_2x1 is
-    Port ( m0 : in  STD_LOGIC;
-           m1 : in  STD_LOGIC;
-           sel : in  STD_LOGIC;
-           mux_out : out  STD_LOGIC);
-end mux_2x1;
+entity button_marronazo is
+    Port ( alarm_in : in  STD_LOGIC;
+           b0_alarm_in : in  STD_LOGIC;
+			  b1_alarm_in : in  STD_LOGIC;
+			  b2_alarm_in : in  STD_LOGIC;
+			  b0_in : in  STD_LOGIC;
+			  b1_in : in  STD_LOGIC;
+			  b2_in : in  STD_LOGIC;
+           b0_out : out  STD_LOGIC;
+			  b1_out : out  STD_LOGIC;
+			  b2_out : out  STD_LOGIC
+			  
+			  );
+end button_marronazo;
 
-architecture Behavioral of mux_2x1 is
+architecture Behavioral of button_marronazo is
 
 begin
 
-mux_out <= m0 when (sel='0') else
-			  m1;
+b0_out <= (b0_alarm_in and b0_in)or (b0_in and not(alarm_in));
+b1_out <= (not(alarm_in) and b1_in) or (alarm_in and b1_alarm_in);
+b2_out <= (not(alarm_in) and b2_in) or (alarm_in and b2_alarm_in);
+
 
 end Behavioral;
 

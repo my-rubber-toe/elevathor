@@ -1,0 +1,16 @@
+net "floor_in_clock" loc = "C9";
+
+net "cf1" loc = "N17";
+net "cf0" loc = "H18";
+
+net "door_opening" loc = "L14";
+           
+net "u0_in" loc = "F7";
+net "u1_in" loc = "E7";
+net "d0_in" loc = "B6";
+net "d1_in" loc = "A6";
+           
+net "u0_out" loc = "F9";
+net "u1_out" loc = "E9";
+net "d0_out" loc ="D11";
+net "d1_out" loc ="C11";

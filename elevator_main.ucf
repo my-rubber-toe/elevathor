@@ -1,0 +1,38 @@
+net "system_clock" loc = "P56";
+
+#hall effects
+net "system_h0" loc ="P57";
+net "system_h1" loc ="P66";
+net "system_h2" loc ="P74";
+
+# alarm
+net "system_alarm" loc ="P78";
+#system_alarm_reset : STD_LOGIC;
+
+#buttons
+net "system_b0" loc ="P51";
+net "system_b1" loc ="P41";
+net "system_b2" loc ="P35";
+
+# external buttons
+net "system_u0" loc ="P30";
+net "system_u1" loc ="P27";
+net "system_d0" loc ="P24";
+net "system_d1" loc ="P22";
+
+# door buttons
+net "system_close" loc ="P8";
+net "system_open" loc ="P6";
+net "system_is_closed" loc ="P2";
+
+#floor module outs
+net "system_prev_out" loc ="P134";
+net "system_dir_down" loc ="P133";
+net "system_dir_up" loc ="P132";
+net "system_enable_door" loc ="P131";
+
+#door module outs
+net "system_door_dir0" loc ="P127";
+net "system_door_dir1" loc ="P126";
+net "system_door_enable_delay" loc ="P124";
+net"system_door_enable_floor" loc ="P123";
