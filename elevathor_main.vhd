@@ -175,6 +175,12 @@ component door_module is
 	);
 end component;
 
+component delay_module is
+    Port ( d_clock : in  STD_LOGIC;
+           d_enable : in  STD_LOGIC;
+           d_out : out  STD_LOGIC);
+end component;
+
 -- hall_to_cf: internal signals
 signal system_cf1, system_cf0 : STD_LOGIC;
 
@@ -198,6 +204,9 @@ signal floor_open_in, floor_prev_out, floor_dir_down_out, floor_dir_up_out, floo
 
 -- internal signal, door_module
 signal door_close_in, door_dir_1_out, door_dir_0_out, door_enable_delay_out, door_enable_floor_out : STD_LOGIC;
+
+-- internal signal, delay module
+signal delay_module_out : STD_LOGIC;
 
 begin
 
@@ -308,14 +317,14 @@ thee_floor_module:floor_module port map(
 
 
 -- door module input signal
-door_close_in <= not(system_alarm_out) and (system_close or door_enable_delay_out);
+door_close_in <= not(system_alarm_out) and (system_close or delay_module_out);
 
 thee_door_module:door_module port map(
 	door_clock => system_clock,
 	door_reset => '0',
 	enable_door => floor_enable_door_out,
 	open_door => system_open,
-	close_door => door_close_in, -- add the delay 
+	close_door => door_close_in,
 	is_closed => system_is_closed,
 	dir_0 => door_dir_0_out,
 	dir_1 => door_dir_1_out,
@@ -323,6 +332,11 @@ thee_door_module:door_module port map(
 	enable_floor => door_enable_floor_out
 );
 
+thee_delay_module:delay_module port map(
+	d_clock => system_clock,
+	d_enable => door_enable_delay_out,
+	d_out => delay_module_out
+);
 
 end Behavioral;
 
