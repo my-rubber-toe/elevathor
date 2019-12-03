@@ -252,7 +252,7 @@ thee_key_conversion_module:key_conversion_module port map(
 	cf0 => system_cf0,
 	cf1 => system_cf1,
 	u0_out => key_conv_u0_out,
-	u1_out => key_conv_d1_out,
+	u1_out => key_conv_u1_out,
 	d0_out => key_conv_d0_out,
 	d1_out => key_conv_d1_out
 );
@@ -308,7 +308,7 @@ thee_floor_module:floor_module port map(
 
 
 -- door module input signal
-door_close_in <= not(system_alarm_out) and system_close;
+door_close_in <= not(system_alarm_out) and (system_close or door_enable_delay_out);
 
 thee_door_module:door_module port map(
 	door_clock => system_clock,
